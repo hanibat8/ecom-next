@@ -16,8 +16,15 @@ const Cart = () => {
             <p>Cart</p>
         </div>
         <div>
-            {cartItems.map((product)=><CartItem key={product.id} category={product.category} id={product.id} productName={product.productName} imgSrc={product.imgSrc} 
-                            price={product.price} />)}
+        {cartItems.map((product) =>
+          <CartItem
+            key={product.id}
+            category={product.category} id={product.id}
+            productName={product.productName}
+            imgSrc={product.imgSrc} 
+            price={product.price}
+          />
+        )}
         </div>
         <div className='flex justify-between'>
         <h4>Total:</h4>
