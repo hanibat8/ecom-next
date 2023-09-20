@@ -8,7 +8,7 @@ const Cart = () => {
     const { toggleCart, cartItems,total } = useCart();
     
   return (
-    <div className="z-50 fixed md:w-1/4 sm:w-full h-full top-0 right-0 block bg-white pt-6 px-2">
+    <div className="z-50 fixed md:w-1/4 w-full h-full top-0 right-0 block bg-white pt-6 px-2">
         <div className='flex justify-between mb-6'>
             <button onClick={toggleCart}>
                 <AiOutlineClose/>

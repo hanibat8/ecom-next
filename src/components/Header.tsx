@@ -7,14 +7,14 @@ import Link from 'next/link';
 
 const Header = () => {
     const { toggleCart } = useCart();
-    const {logout,isAuthenticated}=useAuth();
+    const {logout}=useAuth();
 
     const handleLogout=()=>{
       logout()
     }
 
   return (
-    isAuthenticated && <div className="bg-cyan-50 flex justify-between items-center py-3 px-4">
+    <div className="bg-cyan-50 flex justify-between items-center py-3 px-4">
       <Link href='/products'><h2 className='cursor-pointer'>ECOM STORE</h2></Link>
       <div className="flex gap-6 md:gap-4">
         <button onClick={toggleCart} className=''>

@@ -7,49 +7,54 @@ import { useRouter } from 'next/navigation';
 import { productsData } from '@/data/products';
 import { ProductItem } from '@/types/types';
 
+const product = {
+  productName: 'Product 2',
+  imgSrc: '/product.jpg',
+  price: '2800',
+  category: 'Electronics',
+  id: 2
+}
+
 export default function Product() {
-    const router = useRouter();
-    //const { id } = router.query as { id?: string };
-    const [product,setProduct]=useState<ProductItem>()
-    const { isCartOpen,addToCart } = useCart();
+  const router = useRouter();
+  const { isCartOpen, addToCart } = useCart();
 
-    const handleAddToCart = () => {
-      if(product)
-        addToCart(product);
-      };
-
-    useEffect(()=>{
-      //const product=productsData.find((product)=>product.id===id)
-      //console.log(product)
-        setProduct({
-          productName:'Product 2',
-          imgSrc:'/product.jpg',
-          price:'2800',
-          category:'Electronics',
-          id:2
-      })
-    },[])
-
-    console.log(product)
+  const handleAddToCart = () => {
+    if (product)
+      addToCart(product);
+  };
 
   return (
-    <main className="min-h-screen w-full px-6 mt-32">
-      {isCartOpen && <Cart/>}
-      {product && <div className='flex flex-row md:flex-row sm:flex-col h-96'>
-        <div className="w-1/2 relative">
-          <Image layout='fill' objectFit='cover' alt='product' src={product.imgSrc}/>
-        </div>    
-        <div className='mt-4 px-2 ml-4  md:text-3xl sm:text-2xl w-1/2 flex flex-col justify-evenly relative'>
-    
-            <h4 className='text-slate-700'>{product.productName}</h4>
-          
-            <p className='text-slate-700'>${product.price}</p>
+    <main className="w-full px-6 mt-32">
+      {isCartOpen && <Cart />}
+      {product &&
+        <div className='flex md:flex-row flex-col'>
+          <Image
+            width={400}
+            height={400}
+            className='md:w-1/2 w-full'
+            alt='product'
+            src={product.imgSrc}
+          />
+        <div
+          className='md:text-3xl md:px-4 px-0 sm:text-2xl md:w-1/2 w-full flex flex-col'
+        >
+
+          <h4 className='text-slate-700 font-bold my-2'>{product.productName}</h4>
+
+          <p className='text-black mb-2'>${product.price}</p>
+
+            <p className='text-base text-slate-700 mb-4 text-justify'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris finibus dolor ut leo sagittis faucibus. Cras ornare felis turpis, at rutrum urna malesuada et. Vestibulum tempus erat nisi, vitae fermentum tellus aliquet aliquam. Aliquam nec feugiat felis. Fusce vel gravida metus, a pulvinar massa. Nunc feugiat risus nibh, varius venenatis.</p>
             
-            <p className='text-base text-slate-700'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris finibus dolor ut leo sagittis faucibus. Cras ornare felis turpis, at rutrum urna malesuada et. Vestibulum tempus erat nisi, vitae fermentum tellus aliquet aliquam. Aliquam nec feugiat felis. Fusce vel gravida metus, a pulvinar massa. Nunc feugiat risus nibh, varius venenatis.</p>
-            <button onClick={()=>handleAddToCart()} className='text-base self-end rounded-md bg-cyan-500 p-2 text-white'>Add to Cart</button>
+            <button
+              onClick={() => handleAddToCart()}
+              className='text-base rounded-md bg-cyan-500 p-2 text-white'
+            >
+              Add to Cart
+            </button>
         </div>
       </div>}
-      
+
     </main>
   )
 }
