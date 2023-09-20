@@ -3,6 +3,7 @@
 import { useCart } from '@/context/cartContext';
 import { useAuth } from '@/context/authContext';
 import {BsFillCartDashFill} from 'react-icons/bs'
+import Link from 'next/link';
 
 const Header = () => {
     const { toggleCart } = useCart();
@@ -14,7 +15,7 @@ const Header = () => {
 
   return (
     isAuthenticated && <div className="bg-cyan-50 flex justify-between items-center py-3 px-4">
-      <h2>ECOM STORE</h2>
+      <Link href='/products'><h2 className='cursor-pointer'>ECOM STORE</h2></Link>
       <div className="flex gap-6 md:gap-4">
         <button onClick={toggleCart} className=''>
         <BsFillCartDashFill/>

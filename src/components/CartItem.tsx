@@ -8,8 +8,8 @@ import { ProductItem } from '@/types/types'
 const CartItem = ({imgSrc,productName,price,id}:ProductItem) => {
   const { deleteFromCart } = useCart();
 
-    const handleDeleteCartItem=(id:number)=>{
-        deleteFromCart(id)
+    const handleDeleteCartItem=(id:number,price:string)=>{
+        deleteFromCart(id,price)
     }
 
     console.log(productName,price)
@@ -25,7 +25,7 @@ const CartItem = ({imgSrc,productName,price,id}:ProductItem) => {
         <p className='text-black'>${price}</p>
       </div>
     </div>
-    <button onClick={()=>handleDeleteCartItem(id)} className='self-end cursor-pointer'>
+    <button onClick={()=>handleDeleteCartItem(id,price)} className='self-end cursor-pointer'>
       <AiFillDelete />
     </button>
   </div>

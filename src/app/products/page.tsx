@@ -15,10 +15,11 @@ export default function Home() {
   },[])
 
   return (
-    <main className="min-h-screen px-6 grid grid-cols-4 gap-16 mt-32">
+    <main className="min-h-screen px-6 grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-16 mt-32">
       {isCartOpen && <Cart />}
       {products.map((product)=>
-                <ProductCard product={product} id={product.id} key={product.id} productName={product.productName} img={product.imgSrc} 
+                <ProductCard product={product} id={product.id} key={product.id} 
+                            productName={product.productName} img={product.imgSrc} 
                             price={product.price} categoryName={product.category}/>)}
       
     </main>

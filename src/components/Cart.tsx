@@ -5,7 +5,7 @@ import { useCart } from '@/context/cartContext'
 import CartItem from './CartItem'
 
 const Cart = () => {
-    const { toggleCart, cartItems } = useCart();
+    const { toggleCart, cartItems,total } = useCart();
     
   return (
     <div className="z-50 fixed md:w-1/4 sm:w-full h-full top-0 right-0 block bg-white pt-6 px-2">
@@ -19,7 +19,10 @@ const Cart = () => {
             {cartItems.map((product)=><CartItem key={product.id} category={product.category} id={product.id} productName={product.productName} imgSrc={product.imgSrc} 
                             price={product.price} />)}
         </div>
-        
+        <div className='flex justify-between'>
+        <h4>Total:</h4>
+        <p>{total}</p>
+        </div>
     </div>
   )
 }
