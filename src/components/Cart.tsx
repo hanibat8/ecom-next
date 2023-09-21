@@ -13,7 +13,7 @@ const Cart = () => {
             <button onClick={toggleCart}>
                 <AiOutlineClose/>
             </button>
-            <p>Cart</p>
+            <p className='font-semibold'>Cart</p>
         </div>
         <div>
         {cartItems.map((product) =>

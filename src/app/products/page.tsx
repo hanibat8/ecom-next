@@ -15,7 +15,7 @@ export default function Home() {
   },[])
 
   return (
-    <main className="min-h-screen px-6 grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-16 mt-32">
+    <main className="min-h-screen px-6 grid xl:grid-cols-4 lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-16 mt-32 mb-10">
       {isCartOpen && <Cart />}
       {products.map((product)=>
                 <ProductCard product={product} id={product.id} key={product.id} 

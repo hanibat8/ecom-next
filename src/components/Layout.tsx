@@ -6,7 +6,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div
-      className={` `}
+      className='font-custom'
     >
       <div className="z-40 fixed w-full top-0 block ">
         <Header />
