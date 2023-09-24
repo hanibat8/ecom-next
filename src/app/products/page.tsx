@@ -6,6 +6,16 @@ import { useCart } from '@/context/cartContext';
 import Cart from '@/components/Cart';
 import {ProductItem} from '@/types/types'
 
+async function getData() {
+  const res = await fetch('https://api.example.com/...')
+ 
+  if (!res.ok) {
+    throw new Error('Failed to fetch data')
+  }
+ 
+  return res.json()
+}
+
 export default function Home() {
   const [products,setProducts]=useState<ProductItem[]>([]);
   const { isCartOpen } = useCart();
